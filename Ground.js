@@ -1,8 +1,18 @@
 class Ground{
-    constructor(){
-      //Create a Ground
-	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
-    World.add(world, ground);
+    constructor(x,y,width,height){
+      var options={
+        isStatic:true
+    }
+  this.ground =Matter.Bodies.rectangle(x,y,width,height,options);
+  this.width=width
+  this.height=height
+    World.add(world,this.ground);
 
     }
+   display(){
+    var pos =this.ground.position;
+    rectMode(CENTER);
+    fill("yelllow");
+    rect(pos.x, pos.y, this.width, this.height);
+   }
 }
